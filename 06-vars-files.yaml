@@ -5,5 +5,5 @@
   - course_details.yaml
   tasks:
   - name: varaibles from files
-    ansible.buitlin.debug:
+    ansible.builtin.debug:
       msg: "hello {{ COURSE }}, Duration: {{ DURATION }}, Trainer: {{ TRAINER }}"
