@@ -14,5 +14,5 @@
       SCripting: "Shell,ansible"
   tasks:
   - name: data types checking
-    ansible.buitin.debug:
+    ansible.builtin.debug:
       msg: "Course: {{ COURSE }}, Duration: {{ DURATION }}, is_live: {{ IS_LIVE }}, tools: {{ TOOLS }}, concepts: {{ CONCEPTS }}"
