@@ -3,10 +3,10 @@
   connection: local
   # vars_files:
   # - course_details.yaml
-  vars_prompt:
-  - name: GREETING
-    prompt: Please enter course name
-    private: false
+  # vars_prompt:
+  # - name: GREETING
+  #   prompt: Please enter course name
+  #   private: false
   vars:
     GREETING: "Hello from play level varaibles"
   tasks:
