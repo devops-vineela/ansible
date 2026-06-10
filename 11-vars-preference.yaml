@@ -1,8 +1,8 @@
 - name: variables preference
   hosts: local
   connection: local
-  vars_files:
-  - course_details.yaml
+  # vars_files:
+  # - course_details.yaml
   vars_prompt:
   - name: GREETING
     prompt: Please enter course name
