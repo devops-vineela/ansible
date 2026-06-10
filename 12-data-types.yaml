@@ -2,18 +2,17 @@
   hosts: local
   connection: local
   vars:
-   DURATION: 3.45
-   COURSE: "DevOps with AWS"
-   IS_LIVE: true
-   TOOLS:
-   - Jenkins
-   - Kubernetes
-   - Docker
-   CONCEPTS:
-    CI: Jenkins
-    SCripting: "Shell,ansible"
+    DURATION: 3.45
+    COURSE: "DevOps with AWS"
+    IS_LIVE: true
+    TOOLS:
+    - Jenkins
+    - Kubernetes
+    - Docker
+    CONCEPTS:
+      CI: Jenkins
+      SCripting: "Shell,ansible"
   tasks:
   - name: data types checking
     ansible.buitin.debug:
-   TOOLS:
       msg: "Course: {{ COURSE }}, Duration: {{ DURATION }}, is_live: {{ IS_LIVE }}, tools: {{ TOOLS }}, concepts: {{ CONCEPTS }}"
