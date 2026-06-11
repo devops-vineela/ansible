@@ -1,12 +1,13 @@
 - name: loops concept
-  hosts: frontend
+  hosts: local
+  connection: local
   tasks:
   - name: installing packages
     ansible.builtin.package:
-      name: {{ item }}
+      name: "{{ item }}"
       state: installed
-      # name: {{ item.name }}
-      # state: {{ item.state }}
+      # name: "{{ item.name }}"
+      # state: "{{ item.state }}"
     loop:
     - nginx
     - mysql
