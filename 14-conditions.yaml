@@ -1,0 +1,7 @@
+- name: chceking ansible facts
+  hosts: local
+  connection: local
+  tasks:
+  - name: ansible facts gathering
+    ansible.builtin.debug:
+      msg: "{{ ansible_facts }}"

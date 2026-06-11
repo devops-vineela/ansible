@@ -1,0 +1,38 @@
+- name: function in ansible
+  hosts: local
+  connection: local
+  vars:
+    person_name: ViNeela
+    fruits: apple,banana,orange
+  vars_prompt:
+    name: enter your favourite movie
+    prompt: movie
+  tasks:
+  - name: prining msg by applying filters
+    ansible.builtin.debug:
+      msg: "{{ person_name | upper }}"
+
+  - name: prining msg by applying filters
+    ansible.builtin.debug:
+      msg: "{{ person_name | lower }}"
+
+  - name: prining msg by applying filters
+    ansible.builtin.debug:
+      msg: "{{ movie | default('Baahubali') }}"
+
+  - name: prining msg by applying filters
+    ansible.builtin.debug:
+      msg: "{{ fruits | split(',') }}"
+    register: list
+
+  - name: prining msg by applying filters
+    ansible.builtin.debug:
+      msg: "{{ list | items2dict }}"
+    register: dict
+  - name: prining msg by applying filters
+    ansible.builtin.debug:
+      msg: "{{ dict | dict2items }}"
+
+
+
+
