@@ -25,13 +25,14 @@
       msg: "{{ fruits | split(',') }}"
     register: list
 
+  # - name: prining msg by applying filters
+  #   ansible.builtin.debug:
+  #     msg: "{{ list | items2dict }}"
+  #   register: dict
+    
   - name: prining msg by applying filters
     ansible.builtin.debug:
-      msg: "{{ list | items2dict }}"
-    register: dict
-  - name: prining msg by applying filters
-    ansible.builtin.debug:
-      msg: "{{ dict | dict2items }}"
+      msg: "{{ list | dict2items }}"
 
 
 
