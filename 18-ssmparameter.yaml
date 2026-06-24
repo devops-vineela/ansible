@@ -1,0 +1,8 @@
+- name: get ssmparameter value
+  hosts: local
+  connection: local
+  tasks:
+  - name: get mysqlpwd
+    ansible.builtin.debug: 
+      msg="{{ lookup('amazon.aws.aws_ssm','/roboshop/mysql/mysql-password',decrypt=true ) }}"
+
