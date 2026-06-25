@@ -10,7 +10,7 @@
     SUBNET_ID: "subnet-0df0529713a89cb30"
     SG_ID: "sg-0612c2743325d86f2"
     IMAGE_ID: "ami-0220d79f3f480ecf5"
-    ZONE-NAME: "daws-84s.bond"
+    ZONE_NAME: "daws-84s.bond"
 
   tasks:
   - name: create ec2 instances
