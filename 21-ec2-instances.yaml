@@ -7,9 +7,9 @@
     - mysql
     - frontend
     - backend
-    SUBNET_ID:
-    SG_ID:
-    IMAGE_ID:
+    SUBNET_ID: "subnet-0df0529713a89cb30"
+    SG_ID: "sg-0612c2743325d86f2"
+    IMAGE_ID: "ami-0220d79f3f480ecf5"
     ZONE-NAME: "daws-84s.bond"
 
   tasks:
@@ -29,28 +29,28 @@
     ansible.builtin.debug:
       msg: "{{ ec2-output }}"
 
-  - name: create R53 record
-    amazon.aws.route53:
-      state: present
-      zone: "{{ ZONE_NAME }}"
-      record: "{{ item.item }}.{{ ZONE_NAME }}"
-      ttl: 60
-      type: A
-      wait: true
-      overwrite: true
-      value: "{{ item.instances[0].private-ip-address }}"
-    loop: "{{ ec2-output.results }}"
-    when: "{{ item.item }} != frontend"
+  # - name: create R53 record
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ ZONE_NAME }}"
+  #     record: "{{ item.item }}.{{ ZONE_NAME }}"
+  #     ttl: 60
+  #     type: A
+  #     wait: true
+  #     overwrite: true
+  #     value: "{{ item.instances[0].private-ip-address }}"
+  #   loop: "{{ ec2-output.results }}"
+  #   when: "{{ item.item }} != frontend"
 
-  - name: create R53 record
-    amazon.aws.route53:
-      state: present
-      zone: "{{ ZONE_NAME }}"
-      record: "{{ item.item }}.{{ ZONE_NAME }}"
-      ttl: 60
-      type: A
-      wait: true
-      overwrite: true
-      value: "{{ item.instances[0].public-ip-address }}"
-    loop: "{{ ec2-output.results }}"
-    when: "{{ item.item }} == frontend"
+  # - name: create R53 record
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ ZONE_NAME }}"
+  #     record: "{{ item.item }}.{{ ZONE_NAME }}"
+  #     ttl: 60
+  #     type: A
+  #     wait: true
+  #     overwrite: true
+  #     value: "{{ item.instances[0].public-ip-address }}"
+  #   loop: "{{ ec2-output.results }}"
+  #   when: "{{ item.item }} == frontend"
